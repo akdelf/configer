@@ -41,11 +41,17 @@
 		*  add item to array set 
 		*/
 
-		static function set($name, $value){
+		static function set($name, $value = null){
 
-			static::$set[$name] = $value;
-			return; 
-
+			
+			if ($value == null)
+				return static::$set[$name];
+			else {	
+				static::$set[$name] = $value;
+				return;
+			}
+			
+	
 		}
 
 		
@@ -72,9 +78,12 @@
 	*/
 
 	if (!function_exists('config')) {
-		function config ($name, $value) {
-			return configger::set($name, $value);
+		
+		function set ($name, $value = null) {
+			
+			return configer::set($name, $value);
 		}
+
 	}
 
 	
