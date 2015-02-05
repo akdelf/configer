@@ -25,14 +25,15 @@
 		* load json config
 		*/
 
-		static function load($file) {
+		static function load($source) {
 			
-			if (file_exists($file)) {
-				static::$set = json_decode(file_get_contents($file));
-				return True;
+			if (is_array($source)) {
+				static::$set = array();
+				static::$set = $source;
+			}
+			elseif (file_exists($source)) {
+					static::$set = json_decode(file_get_contents($source), True);
 			}	
-
-			return false;
 
 		} 
 
@@ -59,7 +60,7 @@
 		* export to define
 		*/
 
-		static function 2defines(){
+		static function todefines(){
 			
 			$settings = static::$set;
 
@@ -69,6 +70,12 @@
 			}
 			
 		}
+
+
+		static function all() {
+			return static::$set;
+		}
+
 
 	}	
 
