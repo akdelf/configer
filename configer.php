@@ -84,13 +84,13 @@
 	** quick function to add items config
 	*/
 
-	if (!function_exists('config')) {
+/*	if (!function_exists('config')) {
 		
 		function set ($name, $value = null) {
 			
 			return configer::set($name, $value);
 		}
 
-	}
+	} */
 
 	
